@@ -1,0 +1,128 @@
+* {
+  /* font-family: */
+  background-color: #ede1dd;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-x: hidden;
+  position: relative;
+  line-height: 1.6;
+  letter-spacing: 1px;
+  scroll-behavior: smooth;
+}
+
+header {
+  padding-left: 0;
+  padding-right: 0;
+  margin-bottom: 0;
+  top: 0;
+  background-color: #faebe5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 8px 6px -10px #7b4959;
+  position: sticky;
+  z-index: 1000;
+  margin-bottom: 0;
+}
+
+.title .navigation {
+  flex: 1;
+}
+
+.title {
+  margin-right: auto;
+  white-space: nowrap;
+  text-align: center;
+  color: #7b4959;
+  font-size: 2em;
+  padding-top: 0;
+  padding-bottom: 0;
+  flex: 0 0 auto;
+  font-weight: 300;
+}
+
+.navlink {
+  text-decoration: none;
+  color: inherit;
+  margin-left: 5%;
+}
+
+.scroll-indicator {
+  display: block;
+  text-align: center;
+  cursor: pointer;
+}
+
+.intro {
+  text-align: center;
+}
+
+.intro::after {
+  content: "";
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  height: 2px;
+  position: relative;
+}
+
+.scroll-indicator::before {
+  content: "";
+  position: absolute;
+  top: -10px; /* Adjust as needed */
+  left: 50%;
+  transform: translateX(-50%);
+  border: solid black; /* Adjust the color to match your design */
+  border-width: 0 2px 2px 0; /* Adjust the thickness of the arrow */
+  display: inline-block;
+  padding: 3px; /* Adjust the size of the arrow */
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+.line-container {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+/* Horizontal line */
+.line {
+  width: 100%;
+  height: 1px; /* Adjust as needed */
+  background-color: #848282 !important;
+  position: absolute;
+  top: 50%;
+}
+
+/* Text styling */
+.archive-text {
+  font-size: 1.2em;
+  background: transparent;
+  top: -1.5em;
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #848282;
+}
+
+/* Notch styling */
+.notch {
+  width: 0;
+  height: 0;
+  border-left: 40px solid transparent;
+  border-right: 40px solid transparent;
+  border-top: 40px solid #848282;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: transparent;
+}
