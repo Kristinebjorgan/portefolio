@@ -1,6 +1,5 @@
 * {
-  background-color: #fffff0;
-  font-family: "Barlow", sans-serif;
+  background-color: whitesmoke;
 }
 
 html,
@@ -11,20 +10,31 @@ body {
   overflow-x: hidden;
   position: relative;
   scroll-behavior: smooth;
+  font-family: "Barlow", sans-serif;
 }
 
 header {
   width: 100%;
-  height: auto;
+  height: 1.5em;
   padding-left: 0;
   padding-right: 0;
   margin-bottom: 0;
-  top: 1em;
+  top: 0;
   transition: all 0.3s ease-in-out;
   position: sticky;
   z-index: 1000;
   margin-bottom: 0;
   color: #535e66;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+}
+
+.main {
+   display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center; 
+  height: 100vh;
 }
 
 .title .navigation {
@@ -36,12 +46,14 @@ header {
   display: flex;
   justify-content: left;
   align-items: center;
+  background-color: whitesmoke;
 }
 
 .navlink {
   text-decoration: none;
   color: inherit;
   margin-left: 5%;
+  padding: 1%;
 }
 
 .about {
@@ -50,26 +62,25 @@ header {
 }
 
 /* about */
-
 .about div {
   letter-spacing: 0.12em;
   line-height: 2em;
-  padding: 4em;
+  padding: 5em;
 }
 
-/* Horizontal line */
+/* line */
 .line-container {
-  position: relative; /* Keeps the absolute children positioned relative to this container */
+  position: relative; 
   text-align: center;
-  padding: 20px 0; /* Add padding to ensure space for children */
+  padding: 20px 0; 
 }
 
 .line {
   width: 100%;
   height: 0.09em;
-  background-color: #767e84;
+  background-color: #535e66;
   display: block;
-  position: relative; /* Position relative to allow absolute positioning of children */
+  position: relative; 
   margin-top: 0;
 }
 
@@ -81,11 +92,12 @@ header {
   position: absolute;
   left: 50%;
   transform: translate(-50%, -100%);
-  color: #767e84;
+  color: #535e66;
   cursor: pointer;
   margin: 0;
   text-transform: uppercase;
-  padding: 0.2em;
+  padding-bottom: 0.5em;
+  letter-spacing: 0.2em;
 }
 
 .notch {
@@ -93,7 +105,7 @@ header {
   height: 0;
   border-left: 15px solid transparent;
   border-right: 15px solid transparent;
-  border-top: 10px solid #767e84;
+  border-top: 10px solid #535e66;
   position: absolute;
   top: 1.34em;
   left: 50%;
@@ -103,45 +115,270 @@ header {
 
 /* carousel */
 
-#carousel-container {
+#posts-carousel {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%; /* Adjust the container width to fit better on the site */
-  margin: auto; /* Center the carousel container horizontally */
-}
-
-.carousel {
-  display: flex;
-  flex-wrap: nowrap;
+  width: 100%; 
+  margin: auto; 
   overflow: hidden;
-  width: 100%;
 }
 
 .carousel-item {
-  flex: none; /* Prevents the items from growing or shrinking */
-  width: 100%; /* Each item should occupy the full width of the carousel to show one item at a time */
-  transition: transform 0.5s ease; /* Smooth transition for sliding effect */
-  padding: 20px; /* Adjust padding for better spacing around items, consider reducing if too large */
-  box-sizing: border-box; /* Include padding in the width calculation */
+  text-align: center; 
+  transition: transform 0.5s ease;
+  margin-bottom: 20px;
+  letter-spacing: 0.1em;
 }
 
-/* Adjust the size and position of your navigation buttons as needed */
+.carousel-item img {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  margin: 20px 0;
+}
+
+.carousel-item h3 {
+  font-weight: 400;
+  letter-spacing: 0.4em;
+  padding-top: 2em;
+}
+
+/* Button styles */
+.carousel-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4em;
+  padding: 2em;
+}
+
+#prevBtn::after,
+#nextBtn::after {
+  content: "";
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  border-top: 1px solid #535e66;
+  border-right: 1px solid #535e66;
+}
+
+#prevBtn::after {
+  transform: rotate(-135deg);
+  margin-right: 5px;
+}
+
+#nextBtn::after {
+  transform: rotate(45deg);
+  margin-left: 5px;
+}
+
 #prevBtn,
 #nextBtn {
+  background-color: transparent;
+  border: none;
   cursor: pointer;
-  padding: 10px;
-  margin-top: 10px;
-  font-size: 16px; /* Increase font size for better visibility */
-  background-color: transparent; /* Add a background color for better distinction */
-  border: none; /* Remove border for a cleaner look */
-  border-radius: 5px; /* Optional: add rounded corners */
+  padding: 1em;
 }
 
-/* Additional styling for better visuals */
-.carousel img {
-  max-width: 100%; /* Ensure images fit within their items */
-  height: auto; /* Maintain aspect ratio */
-  display: block; /* Remove any inline characteristics */
-  margin: 0 auto; /* Center images within the carousel item */
+.read-more {
+  text-decoration: none;
+  color: #2b3640;
+  display: block;
+  margin: 2em auto;
+}
+
+#prevBtn:hover,
+#nextBtn:hover {
+  transform: scale(1.1);
+  transition: transform 0.2s ease-in-out; 
+}
+
+.read-more:hover {
+  font-size: 1.06em;
+  transition: transform 0.2s ease-in-out;
+  text-decoration: underline;
+}
+
+/* Contact */
+
+.mail-container {
+  min-height: 100vh; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center; 
+  padding: 0; 
+}
+
+#contact-section {
+  width: 100%;
+}
+
+#contact-section a {
+  color: #535e66;
+  text-decoration: none;
+  font-size: 2em;
+  letter-spacing: 0.1em;
+}
+
+#contact-section a:hover {
+  text-decoration: underline; 
+}
+
+/* specific page */
+#details-container {
+  width: 80%;
+  max-width: 1000px; 
+  margin: auto;
+  padding: 20px;
+  background-color: transparent;
+  text-align: center;
+}
+
+#details-container .detail-div:first-child .detail-content {
+  font-size: 2.5em;
+  text-align: center;
+  letter-spacing: 0.5em;
+}
+
+.detail-div {
+  color: black;
+  letter-spacing: 0.1em;
+}
+
+p {
+  color: #666;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Slideshow styles */
+.slideshow {
+  position: relative;
+  width: 100%;
+  margin-bottom: 20px;
+  min-height: 300px;
+}
+
+.slide {
+  display: none;
+  text-align: center; 
+}
+
+.slide.active {
+  display: block; 
+}
+
+.slide img {
+  max-width: 100%;
+  height: auto;
+  display: inline-block; 
+}
+
+/* Navigation buttons for slideshow */
+.slide-nav-button {
+  padding: 10px 20px;
+  border: 1px solid #ddd;
+  background-color: #f8f8f8;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #333;
+  font-size: 16px;
+}
+
+.slide-nav-button:hover {
+  background-color: #e8e8e8;
+}
+
+.slide-nav-button.prev {
+  left: 10px;
+}
+
+.slide-nav-button.next {
+  right: 10px;
+}
+
+video {
+  width: 100%; 
+  height: auto; 
+  max-width: 1000px; 
+  margin: 20px auto; 
+}
+
+.link-div a {
+  text-decoration: none;
+  text-align: center;
+  margin: 10px 0;
+  letter-spacing: 0.1em;
+  line-height: 1.5em;
+  color: #666;
+  font-size: 1.5em;
+  align-self: center;
+}
+
+.link-div a:hover {
+  text-decoration: underline; 
+}
+
+.coding-languages {
+  text-align: center; 
+  margin: 2em 0; 
+  font-size: 1.2em; 
+}
+
+.coding-tag {
+  display: inline-block; 
+  padding: 5px 10px; 
+  margin: 5px; 
+  border: 2px dotted #666; 
+  border-radius: 5px;
+  background-color: #f9f9f9; 
+}
+
+
+/* links */
+.links-container {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  gap: 20px; 
+  margin-top: 20px;
+}
+
+.links-container .link-div {
+  display: flex; 
+  justify-content: center;
+}
+
+/* top btn */
+#top-container {
+    position: fixed; 
+    bottom: 20px; 
+    right: 20px; 
+    z-index: 1000; 
+}
+
+#top-container a {
+    padding: 10px 20px; 
+    background-color: #666; 
+    color: whitesmoke; 
+    text-decoration: none; 
+    border-radius: 1em;
+    text-transform: uppercase;
+}
+
+#top-container a:hover {
+    background-color: #555; 
 }

@@ -22,11 +22,14 @@
   <body>
     <!-- HEADER -->
     <header class="header">
-      <!-- <button class="hamburger">☰</button> -->
       <nav class="navigation">
-        <a class="navlink" href="index.html" aria-label="About">About me</a>
-        <a class="navlink" href="archive.html" aria-label="Archive">Archive</a>
-        <a class="navlink" href="contact.html" aria-label="Contact">Contact</a>
+        <a class="navlink" href="#about-section" aria-label="About">About</a>
+        <a class="navlink" href="#archive-section" aria-label="Archive"
+          >Archive</a
+        >
+        <a class="navlink" href="#contact-section" aria-label="Contact"
+          >Contact</a
+        >
       </nav>
     </header>
 
@@ -50,8 +53,10 @@
       <section id="archive-section">
         <div id="carousel-container">
           <div id="posts-carousel" class="carousel"></div>
-          <button id="prevBtn">Prev</button>
-          <button id="nextBtn">Next</button>
+          <div class="carousel-controls">
+            <button id="prevBtn"></button>
+            <button id="nextBtn"></button>
+          </div>
         </div>
         <div class="line-container">
           <a href="#contact-section" class="line">
@@ -63,7 +68,16 @@
 
       <!-- Contact section -->
 
-      <section id="contact-section"></section>
+      <section id="contact-section">
+        <div class="mail-container">
+          <a href="mailto:hello@kristinebjorgan.com"
+            >hello@kristinebjorgan.com</a
+          >
+        </div>
+      </section>
+          <div id="top-container">
+    <a href="#about-section">Top</a>
+</div>
     </main>
   </body>
 </html>
