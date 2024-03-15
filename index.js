@@ -1,7 +1,7 @@
 //fetch the About page content
 async function fetchAboutPageContent() {
   try {
-    const pageId = "9"; 
+    const pageId = "9";
     const apiUrl = `https://portefolio.kristinebjorgan.com/wp-json/wp/v2/pages/${pageId}`;
 
     // Fetch the specific About page
@@ -28,8 +28,8 @@ async function fetchAboutPageContent() {
 }
 
 // Carousel
-let currentPostIndex = 0; 
-const postIDs = [40, 34, 25]; 
+let currentPostIndex = 0;
+const postIDs = [40, 34, 25];
 
 function populateCarousel(postID) {
   const carouselContainer = document.getElementById("posts-carousel");
@@ -57,7 +57,7 @@ function populateCarousel(postID) {
         : "default-image.jpg";
       const imageAlt = designFullscreen ? designFullscreen.alt : projectTitle;
 
-      // carousel item 
+      // carousel item
       const postElement = document.createElement("div");
       postElement.classList.add("carousel-item");
       postElement.innerHTML = `
@@ -75,13 +75,13 @@ function populateCarousel(postID) {
 }
 
 function showNextPost() {
-  currentPostIndex = (currentPostIndex + 1) % postIDs.length; 
-  populateCarousel(postIDs[currentPostIndex]); 
+  currentPostIndex = (currentPostIndex + 1) % postIDs.length;
+  populateCarousel(postIDs[currentPostIndex]);
 }
 
 function showPrevPost() {
-  currentPostIndex = (currentPostIndex - 1 + postIDs.length) % postIDs.length; 
-  populateCarousel(postIDs[currentPostIndex]); 
+  currentPostIndex = (currentPostIndex - 1 + postIDs.length) % postIDs.length;
+  populateCarousel(postIDs[currentPostIndex]);
 }
 
 function carouselNavigation() {
@@ -102,7 +102,7 @@ function truncateText(text, length) {
 document.addEventListener("DOMContentLoaded", () => {
   const carouselContainer = document.getElementById("posts-carousel");
   if (carouselContainer) {
-    populateCarousel(postIDs[currentPostIndex]); 
+    populateCarousel(postIDs[currentPostIndex]);
     carouselNavigation();
     fetchAboutPageContent();
   }
@@ -144,7 +144,7 @@ function fetchCodingLanguagesNames(ids, callback) {
     })
     .then((tags) => {
       const names = tags.map((tag) => tag.name);
-      callback(names); 
+      callback(names);
     })
     .catch((error) => {
       console.error("Error fetching coding languages:", error);
@@ -157,10 +157,10 @@ function displayCodingLanguages(names, detailsContainer) {
   codingLanguagesDiv.className = "coding-languages";
 
   names.forEach((name) => {
-    const tagDiv = document.createElement("div"); 
-    tagDiv.className = "coding-tag"; 
+    const tagDiv = document.createElement("div");
+    tagDiv.className = "coding-tag";
     tagDiv.textContent = name;
-    codingLanguagesDiv.appendChild(tagDiv); 
+    codingLanguagesDiv.appendChild(tagDiv);
   });
 
   detailsContainer.appendChild(codingLanguagesDiv);
@@ -286,6 +286,7 @@ function fetchPostDetails(postId) {
         color_palette,
         github_repo,
         report,
+        netlify,
       } = post.acf;
 
       const detailsContainer = document.getElementById("details-container");
@@ -366,6 +367,11 @@ function fetchPostDetails(postId) {
       // Report
       if (report) {
         linksContainer.appendChild(createLinkDiv("Report", report));
+      }
+
+      // live linik
+      if (report) {
+        linksContainer.appendChild(createLinkDiv("Netlify", netlify));
       }
 
       detailsContainer.appendChild(linksContainer);
